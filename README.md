@@ -5,7 +5,7 @@ This program can compute intensity of electirc field and transmition coeficient 
 ## Theory
 
 
-Theory is based on $vloz link na knihu$.
+Theory is based on <em>book.pdf</em> uploaded on github and any good Electromagnetism theory book.
 In simplicity photonic crystal is material that disrupts translation invariance of free space and the index of refraction is periodically repeated. The simpliest photonic crystal is repeatiog of two layers of materials. We call this 1D photonic crystal.
 
 Defect is everything that disrupts periodically repeated of index of refraction. For example photonic crystal with defect can be ilustrated by $N$ layers of $2$ materials ($A$ and $B$), then $D$ layer and another $N$ layers of $A$ and $B$.
