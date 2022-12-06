@@ -96,8 +96,8 @@ total_lenght = 2*N*l+koef*l_a
 number_of_steps = 100000
 lenght_of_step = total_lenght/number_of_steps ## dlzka kroku
 
-s_a = int(l_a/delta) ## Number of step needed to go through layer A
-s_b = int(l_b/delta) ## Number of step needed to go through layer B
+s_a = int(l_a/lenght_of_step) ## Number of step needed to go through layer A
+s_b = int(l_b/lenght_of_step) ## Number of step needed to go through layer B
 
 s = int(s_a + s_b) ## Number of step needed to go through layer A+B
 
@@ -122,7 +122,7 @@ print(s_b)
     # ak sa rovna tak som na rozhrani AB a podobne pre ostatne limity
     # Potom si vypocitam kolko krokov l1 spravim dokym sa dostanem k poruche 
     # aplikujem tieto podmienky 
-    # vynasobim maticu E z lava prechodovou maticou s l rovnce i*delta
+    # vynasobim maticu E z lava transitionovou maticou s l rovnce i*delta
     # podobne to spravim aj ked som v poruche a za poruchou
 i = 1
 while i <= number_of_steps:
@@ -210,46 +210,46 @@ koef = 1 ## koeficient nasobku poruhcy a->koef*a
 
 Transmision = []
 w = []
-
+## Calculation for P lenghts of defect 
 for M in range(1,P):
     Transmision.append([])
     w.append([])
     omega = 0.0001*omega_0
 
-    while omega < 2*omega_0:
-        ## vypocet k-cok
+    while omega <= 1.5*omega_0:
+        ## Calculation of wave vectors
         k_a = omega*np.sqrt(n_a**2)*np.cos(theta_a)
         k_b = omega*np.sqrt(n_b**2)*np.cos(theta_b)
 
 
         chi = (mu_b*k_a)/(mu_a*k_b)
 
-        ## matica prechodu A->B
+        ## Trasnfer matrix A->B
         M_ab = 1/2*np.matrix([[1 + chi, 1 - chi], [1 - chi , 1 + chi]])
 
-        ## matica prechodu B->A
+        ## Trasnfer matrix B->A
         M_ba = inv(M_ab)
 
-        ## matica prechodu cez A 
+        ## Matrix throght layer A
         M_aa = np.matrix([[np.exp(1j*k_a*l_a), 0], [0, np.exp(-1j*k_a*l_a)]])
 
-        ## matica prechodu cez B
+        ## Matrix throght layer A
         M_bb = np.matrix([[np.exp(1j*k_b*l_b), 0], [0, np.exp(-1j*k_b*l_b)]])
 
-        ## prechod A->B + B + B->A + A
-        M_prechod = multi_dot([M_aa, M_ab, M_bb, M_ba])
+        ## Transition A->B + B + B->A + A
+        M_transition = multi_dot([M_aa, M_ab, M_bb, M_ba])
 
-        ## M_prechod na pocet vrstiev
-        M_powered = matrix_power(M_prechod, N)
+        ## M_transition powered to N
+        M_powered = matrix_power(M_transition, N)
 
-        ## matica predstavujuca prechod cez poruchu
+        ## Matrix throght defect
         M_ll = np.matrix([[np.exp(1j*k_a*l_a*M*koef), 0], [0, np.exp(-1j*k_a*l_a*M*koef)]])
 
-        ## vypocet celkovej matice prechodu
+        ## Total matrix of tranition
         M_celkove = multi_dot([M_powered,M_ll, M_powered])
 
 
-        ## vypocet koeficientu transmisie
+        ## Transmiton coeficient
         T = 1/np.absolute(M_celkove[1, 1])**2
 
         Transmision[M-1].append(T)
@@ -277,7 +277,7 @@ ax.tick_params(which = 'minor', axis = 'both', labelsize = sz, direction = 'in',
 	bottom = True, top = True, left = True, right = True)
 
 for M in range(1,P):
-    ax.plot(w[M-1], Transmision[M-1], linewidth = lw, color = colors[M-1], label = "Šírka poruchy - "+str(M*koef))
+    ax.plot(w[M-1], Transmision[M-1], linewidth = lw, color = colors[M-1], label = "Size of defect - "+str(M*koef))
 ax.legend()
 txt = "N = "+str(N)+", $l_a$ = "+str(l_a)+", $l_b$ = "+str(l_b)+", $\epsilon_a$ = "+str(epsilo_a)+", $\mu_a$ = "+str(mu_a)+", $\epsilon_b$ = "+str(epsilo_b)+", $\mu_b$ = "+str(mu_b)+r", $\theta_a$ = "+str(theta_a)
 
