@@ -11,7 +11,7 @@ In simplicity photonic crystal is material that disrupts translation invariance 
 Defect is everything that disrupts periodically repeated of index of refraction. For example photonic crystal with defect can be ilustrated by $N$ layers of $2$ materials ($A$ and $B$), then $D$ layer and another $N$ layers of $A$ and $B$.
 
 We gonna need some physical expressions from electromagnetics and optics.
-The transition of electric field can be described with matrix of transition.
+The transition of electric field can be described with transfer matrix.
 
 $$ {\left\lbrack \matrix{E_2^+ \cr E_2^-} \right\rbrack}=M_{\text{T}}{\left\lbrack \matrix{E_1^+ \cr E_1^-} \right\rbrack} $$
 
