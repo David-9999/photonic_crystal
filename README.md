@@ -5,7 +5,7 @@ This program can compute intensity of electirc field and transmition coeficient 
 ## Theory
 
 
-Theory is based on <em>book.pdf</em> uploaded on github and any good Electromagnetism theory book.
+Theory is based on [this book](https://www.jstor.org/stable/j.ctt7s2wj) uploaded on github and any good Electromagnetism theory book.
 In simplicity photonic crystal is material that disrupts translation invariance of free space and the index of refraction is periodically repeated. The simpliest photonic crystal is repeatiog of two layers of materials. We call this 1D photonic crystal.
 
 Defect is everything that disrupts periodically repeated of index of refraction. For example photonic crystal with defect can be ilustrated by $N$ layers of $2$ materials ($A$ and $B$), then $D$ layer and another $N$ layers of $A$ and $B$.
@@ -35,6 +35,6 @@ We define reference frequency as $\omega_0 = 2\pi/l$, where $l$ is lenght of $A+
 ## Logic of program
 
 You can see there are $3$ <em>.py</em> programs.
-The <em>usr_data.py</em> generetes the intensity of electric field inside of photonic crystal and transmition coeficient for range of $\omega$. You need to input permitivity, permeability, lenghts of layers, angle of incidence, size of defect and number of repeating of $A+B$ layer and multiplication of $\omega_0$ for frequency $\omega$. And it will generate two <em>.png</em> pictures. First <em>plot_E.png</em> shows the intensity of $E$ in photonic crystal, second <em>plot_T.png</em> represent transmission coeficient.
+The [<em>usr_data.py</em>](../usr_data.py) generetes the intensity of electric field inside of photonic crystal and transmition coeficient for range of $\omega$. You need to input permitivity, permeability, lenghts of layers, angle of incidence, size of defect and number of repeating of $A+B$ layer and multiplication of $\omega_0$ for frequency $\omega$. And it will generate two <em>.png</em> pictures. First <em>plot_E.png</em> shows the intensity of $E$ in photonic crystal, second <em>plot_T.png</em> represent transmission coeficient.
 
 
