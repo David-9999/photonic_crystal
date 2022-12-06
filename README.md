@@ -8,7 +8,7 @@ This program can compute intensity of electirc field and transmition coeficient 
 Theory is based on $vloz link na knihu$.
 In simplicity photonic crystal is material that disrupts translation invariance of free space and the index of refraction is periodically repeated. The simpliest photonic crystal is repeatiog of two layers of materials. We call this 1D photonic crystal.
 
-Defect is everything that disrupts periodically repeated of index of refraction. For example photonic crystal with defect can be ilustrated by N layers of 2 materials (A and B), then D layer and another N layers of A and B.
+Defect is everything that disrupts periodically repeated of index of refraction. For example photonic crystal with defect can be ilustrated by $N$ layers of $2$ materials ($A$ and $B$), then $D$ layer and another $N$ layers of $A$ and $B$.
 
 We gonna need some physical expressions from electromagnetics and optics.
 The transition of electric field can be described with matrix of transition.
@@ -28,8 +28,12 @@ where
 $$\chi_E = \frac{\mu_2 k_{1z}}{\mu_1 k_{2z}}$$
 $$k_{1,2z}=\frac{\omega}{c}n_{1,2}\cos\left(\theta_{1,2}\right)$$
 
-$\omega$ is angle of incidence, $\mu$ is permeability and $n=\sqrt{\epsilon \mu}$ is refraction index 
-First of all you need to input permitivity, permeability, lenghts of layers, angle of incidence, size of defect and number of repeating of A+B layer.
-Calculations are based on
+$\omega$ is frequency of  incident electric field, $\theta$ is angle of incidence, $\mu$ is permeability and $n=\sqrt{\epsilon \mu}$ is refraction index.
+Transmition coeficient can be calculated as $T = 1/\left\|M_{22}\right\|^2$ and depend of frequency $\omega$.
+We define reference frequency as $\omega_0 = 2\pi/l$, where $l$ is lenght of $A+B$ layer.
+
+##Logic of program
+You can see there are $3$ <em>.py</em> programs.
+The <em>usr_data.py</em> generetes the intensity of electric field inside of photonic crystal and tranmition coeficient for range of $\omega$. You need to input permitivity, permeability, lenghts of layers, angle of incidence, size of defect and number of repeating of $A+B$ layer and multiplication of $\omega_0$ for frequency $\omega$. And it will generate two <em>.png</em> pictures. First <em>plot_E.png</em> shows the intensity of $E$ in photonic crystal, second <em>plot_T.png</em> represent tranmition coeficient.
 
 
