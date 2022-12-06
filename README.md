@@ -12,7 +12,7 @@ Defect is everything that disrupts periodically repeated of index of refraction.
 
 We gonna need some physical expressions from electromagnetics and optics.
 The transition of electric field can be described with matrix of transition.
-$E_2 = M_T E_1$
+$E_2 = M_{TE} E_1$
 
 First of all you need to input permitivity, permeability, lenghts of layers, angle of incidence, size of defect and number of repeating of A+B layer.
 Calculations are based on
