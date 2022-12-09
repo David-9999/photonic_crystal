@@ -65,6 +65,9 @@ N = int(input("Enter number of A+B layers before defect: "))
 
 
 koef = float(input("Enter size of defect: "))
+if(koef < 1):
+    print("Size of defect need to be atleast 1")
+    exit()
 
 O = float(input("Enter multiplication of omega0: "))
 omega = O*omega_0
@@ -193,7 +196,7 @@ plt.close()
 
 
 ## Calculation of transmition coeficient
-print("pocitam T")
+print("Calculating T")
 n_a = np.sqrt(complex(epsilo_a*mu_a))
 n_b = np.sqrt(complex(epsilo_b*mu_b))
 
@@ -252,7 +255,7 @@ for M in range(1,P):
         ## Transmiton coeficient
         T = 1/np.absolute(M_celkove[1, 1])**2
 
-        Transmision[M-1].append(np.log(T))
+        Transmision[M-1].append(T)
         w[M-1].append(omega/omega_0)
 
         omega+=0.0001*omega_0
@@ -282,9 +285,9 @@ ax.legend()
 txt = "N = "+str(N)+", $l_a$ = "+str(l_a)+", $l_b$ = "+str(l_b)+", $\epsilon_a$ = "+str(epsilo_a)+", $\mu_a$ = "+str(mu_a)+", $\epsilon_b$ = "+str(epsilo_b)+", $\mu_b$ = "+str(mu_b)+r", $\theta_a$ = "+str(theta_a)
 
 fig.text(.05,.05,txt)
-
+ax.set_yscale('log')
 ax.set_xlabel('$\omega/\omega_0$', labelpad = 7.5, fontsize = sz)
-ax.set_ylabel("\log(T)", labelpad = 7.5, fontsize = sz)
+ax.set_ylabel(r"$\log(T)$", labelpad = 7.5, fontsize = sz)
 
 ax.xaxis.tick_top()
 ax.xaxis.set_label_position('top') 
