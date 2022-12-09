@@ -8,27 +8,27 @@ from numpy.linalg import matrix_power
 
 ## DAVID VRBA
 ## Calculation of intensity of electric field
-epsilon_a_r = input("Enter real part of permitivity of A layer: ")
-epsilon_a_i = input("Enter imaginary part of permitivity of A layer: ")
+epsilon_a_r = float(input("Enter real part of permitivity of A layer: "))
+epsilon_a_i = float(input("Enter imaginary part of permitivity of A layer: "))
 if(epsilon_a_i < 0):
     print("Imaginary part of permitivity is negative!")
     exit()
 
-mu_a_r = input("Enter real part of permeability of A layer: ")
-mu_a_i = input("Enter imaginary part of permeability of A layer: ")
-if(epsilon_a_i < 0):
+mu_a_r = float(input("Enter real part of permeability of A layer: "))
+mu_a_i = float(input("Enter imaginary part of permeability of A layer: "))
+if(mu_a_i < 0):
     print("Imaginary part of permeability is negative!")
     exit()
 
-epsilon_b_r = input("Enter real part of permitivity of B layer: ")
-epsilon_b_i = input("Enter imaginary part of permitivity of B layer: ")
-if(epsilon_a_i < 0):
+epsilon_b_r = float(input("Enter real part of permitivity of B layer: "))
+epsilon_b_i = float(input("Enter imaginary part of permitivity of B layer: "))
+if(epsilon_b_i < 0):
     print("Imaginary part of permitivity is negative!")
     exit()
 
-mu_b_r = input("Enter real part of permeability of B layer: ")
-mu_b_i = input("Enter imaginary part of permeability of B layer: ")
-if(epsilon_a_i < 0):
+mu_b_r = float(input("Enter real part of permeability of B layer: "))
+mu_b_i = float(input("Enter imaginary part of permeability of B layer: "))
+if(mu_b_i < 0):
     print("Imaginary part of permeability is negative!")
     exit()
 
@@ -44,7 +44,7 @@ n_a = np.sqrt(complex(epsilo_a*mu_a))
 n_b = np.sqrt(complex(epsilo_b*mu_b))
 
 ## Angle of incidence
-theta_a = input("Enter angle of incidence: ")
+theta_a = float(input("Enter angle of incidence: "))
 ## Angle of reflaction
 theta_b = np.arcsin(np.sin(theta_a)*n_a.real/n_b.real)
 
@@ -55,18 +55,18 @@ if ((n_a.imag < 0) or (n_b.imag < 0)):
     print("Imaginary part of refractive index is negative!")
     exit()
 
-l_a = input("Enter lenght of A layer: ")
-l_b = input("Enter lenght of B layer: ")
+l_a = float(input("Enter lenght of A layer: "))
+l_b = float(input("Enter lenght of B layer: "))
 l = l_a + l_b
 
 omega_0 = 2*np.pi/l
 
-N = input("Enter lenght of A+B layers before defect: ")
+N = int(input("Enter number of A+B layers before defect: "))
 
 
-koef = input("Enter size of defect: ")
+koef = float(input("Enter size of defect: "))
 
-O = input("Enter multiplication of omega0: ")
+O = float(input("Enter multiplication of omega0: "))
 omega = O*omega_0
 
 ## Calculation of wave vectors
@@ -206,7 +206,7 @@ if ((n_a.imag < 0) or (n_b.imag < 0)):
 P = 4 ## cislo pre limit poctu poruch
 colors = ["b","g", "r", "c", "m", "y", "k", "w"]
 
-koef = 1 ## koeficient nasobku poruhcy a->koef*a
+koef = 1 ## koeficient nasobku poruhcy a->koef*a
 
 Transmision = []
 w = []
@@ -252,7 +252,7 @@ for M in range(1,P):
         ## Transmiton coeficient
         T = 1/np.absolute(M_celkove[1, 1])**2
 
-        Transmision[M-1].append(T)
+        Transmision[M-1].append(np.log(T))
         w[M-1].append(omega/omega_0)
 
         omega+=0.0001*omega_0
@@ -284,7 +284,7 @@ txt = "N = "+str(N)+", $l_a$ = "+str(l_a)+", $l_b$ = "+str(l_b)+", $\epsilon_a$ 
 fig.text(.05,.05,txt)
 
 ax.set_xlabel('$\omega/\omega_0$', labelpad = 7.5, fontsize = sz)
-ax.set_ylabel("T", labelpad = 7.5, fontsize = sz)
+ax.set_ylabel("\log(T)", labelpad = 7.5, fontsize = sz)
 
 ax.xaxis.tick_top()
 ax.xaxis.set_label_position('top') 
