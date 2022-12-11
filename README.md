@@ -8,7 +8,7 @@ This program can compute intensity of electirc field and transmition coeficient 
 Theory is based on [this book](https://www.jstor.org/stable/j.ctt7s2wj) and any good Electromagnetism theory book.
 In simplicity photonic crystal is material that disrupts translation invariance of free space and the index of refraction is periodically repeated. The simpliest photonic crystal is repeatiog of two layers of materials. We call this 1D photonic crystal.
 
-Defect is everything that disrupts periodically repeated of index of refraction. For example photonic crystal with defect can be ilustrated by $N$ layers of $2$ materials ($A$ and $B$), then $D$ layer and another $N$ layers of $A$ and $B$.
+Defect is everything that disrupts periodically repeated of index of refraction. For example photonic crystal with defect can be ilustrated by $N$ layers of $2$ materials $(A$ and $B)$, then $D$ layer and another $N$ layers of $A$ and $B$.
 
 We gonna need some physical expressions from electromagnetics and optics.
 The transition of electric field can be described with transfer matrix.
@@ -43,10 +43,10 @@ The [<em>photonic_transmition.py</em>](../main/photonic_transmition.py) will gen
 
 ### photonic_intesity.py
 
-The [<em>photonic_intesity.py</em>](../main/photonic_intesity.py) will generate picture of intesity of electric field inside photonic crystal. This program doesnt take any input so you must change variables by yourself. The only tricky part of this program is <em>while loop<\em> on line $88$. This loop function as followed:
-* Calculate number of step needed to go through layer $A$ $\left(s_a\right)$ and layer $B$ $\left(s_b\right)$ and throught layer $A+B$ $\left(s\right)$
-* Calculate number of step to the defect $\left(l_1\right)$ and throught defect $\left(l_2\right)$
-* It is good to relize that if $s$ modulo of $i$-step is less that $s_a$ we are calculation electric field in layer $A$. If modulo of $i$ si equals to $s_a$ then we are locaded at the interface of $A$ and $B$, similary other cases.
+The [<em>photonic_intesity.py</em>](../main/photonic_intesity.py) will generate picture of intesity of electric field inside photonic crystal. This program doesnt take any input so you must change variables by yourself. The only tricky part of this program is <em>while loop</em> on line $88$. This loop function as followed:
+- Calculate number of step needed to go through layer $A$ $\left(s_a\right)$ and layer $B$ $\left(s_b\right)$ and throught layer $A+B$ $\left(s\right)$
+- Calculate number of step to the defect $\left(l_1\right)$ and throught defect $\left(l_2\right)$
+- It is good to relize that if $s$ modulo of $i$-step is less that $s_a$ we are calculation electric field in layer $A$. If modulo of $i$ si equals to $s_a$ then we are locaded at the interface of $A$ and $B$, similary other cases.
 
 
 ### usr_E_T.py
