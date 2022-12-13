@@ -206,10 +206,8 @@ if ((n_a.imag < 0) or (n_b.imag < 0)):
     exit()
 
 
-P = 4 ## cislo pre limit poctu poruch
+P = 4 ## Number of repetitions of defect
 colors = ["b","g", "r", "c", "m", "y", "k", "w"]
-
-koef = 1 ## koeficient nasobku poruhcy a->koef*a
 
 Transmision = []
 w = []
