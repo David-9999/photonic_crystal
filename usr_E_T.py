@@ -195,7 +195,7 @@ plt.savefig("plot_E.png", dpi = 600, format = 'png')
 plt.close()
 
 
-## Calculation of transmition coeficient
+## Calculation of transmission coeficient
 print("Calculating T")
 n_a = np.sqrt(complex(epsilo_a*mu_a))
 n_b = np.sqrt(complex(epsilo_b*mu_b))
