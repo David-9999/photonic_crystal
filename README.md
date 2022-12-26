@@ -15,12 +15,11 @@ The transition of electric field can be described with transfer matrix.
 
 $$ {\left\lbrack \matrix{E_2^+ \cr E_2^-} \right\rbrack}=M_{\text{T}}{\left\lbrack \matrix{E_1^+ \cr E_1^-} \right\rbrack} $$
 
-The matrix of transition can be created by combination of two types of matrixes. 
-First is matrix that describe transmission throught layer,
+The matrix of transition can be created by combination of two types of matrices. First is matrix that describe transmission through layer
 
 $$ M_{\text{layer}}={\left\lbrack \matrix{e^{ik_z\Delta} & 0 \cr 0 & e^{-ik_z\Delta}} \right\rbrack} $$
 
-and maxtrix of transmission throught interfrace of layers,
+and matrix of transmission through interface of layers,
 
 $$ M_{\text{TE}}={\left\lbrack \matrix{1+χ_E & 1-χ_E \cr 1-χ_E & 1+χ_E} \right\rbrack} $$
 
