@@ -33,9 +33,6 @@ We define reference frequency as $\omega_0 = 2\pi/l$, where $l$ is lenght of $A+
 
 ## Logic of program
 
-You can see there are $4$ <em>.py</em> programs.
-
-
 ### photonic_transmission.py
 
 The [<em>photonic_transmission.py</em>](../main/photonic_transmission.py) will generate picture of transmission coeficient. This program doesnt take any input so you must change variables by yourself. The logic is based on computing trasnfer matrix and layer matrix and then multipy them in correct order.
